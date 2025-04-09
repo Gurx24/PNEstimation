@@ -1,2 +1,2 @@
-# pn-estimation
+# PNSequenceEstimation
 Parameter estimation and construction of PN sequence
