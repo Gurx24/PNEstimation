@@ -9,18 +9,17 @@
 %
 % date : 2025.3.26  GuRX
 %
-% [reseq, poly, state] = pessc(seq)
+% [reseq, poly, state] = pessc(seq, pairs)
 %
 % *************************************************************
 % seq     : estimated spreading code sequence
+% pairs   : all optimal pairs of L-th order
 % reseq   : reconstructed sequence without error bits
 % poly    : estimated generator polynomial of speading sequence
 % state   : estimated initial state of speading sequence
 % *************************************************************
 
-function [reseq, poly, state] = persc(seq)
-
-load("parameters.mat", "pairs");
+function [reseq, poly, state] = persc(seq, pairs)
 
 N     = length(seq);           % length of ss sequence
 L     = log2(N+1);             % number of LFSR stages
@@ -53,8 +52,6 @@ end
 % Traverse local Gold sequence generator polynomial set
 if ~flag
     disp('non m sequence');
-    % [num, pairs] = getoptpairs(L); % obtain all optimal pairs of L-th order
-    % fprintf('obtained %d optimal pairs of %d order.\n', num, L);
     for j = 1:size(pairs, 1)
         mpair    = dec2bin(base2dec(num2str(pairs(j, :).'), 8))-'0';
         gpoly    = conv(mpair(1, :), mpair(2, :));
