@@ -31,16 +31,9 @@ ppoly = gfprimfd(L, 'all');    % set of Lth-order m sequence polynomials
 rs    = [zeros(1, L-1) 1];     % random state
 flag  = false;                 % execution flag of the algorithm
 
-[num, pairs] = getoptpairs(L); % obtain all optimal pairs of L-th order
-fprintf('obtained %d optimal pairs of %d order.\n', num, L);
-
 % Traverse local m sequence generator polynomial set
 for i = 1:size(ppoly, 1)
-    mSeqGen = comm.PNSequence( ...
-        'Polynomial', ppoly(i, :), ...
-        'InitialConditions', rs, ...
-        'SamplesPerFrame', N);
-    tempseq = mSeqGen();
+    tempseq = generator(ppoly(i, :), rs);
     b       = 2*tempseq - 1;
     R       = zeros(1, N);
     for t = 1 : N
@@ -60,6 +53,8 @@ end
 % Traverse local Gold sequence generator polynomial set
 if ~flag
     disp('non m sequence');
+    [num, pairs] = getoptpairs(L); % obtain all optimal pairs of L-th order
+    fprintf('obtained %d optimal pairs of %d order.\n', num, L);
     for j = 1:size(pairs, 1)
         mpair    = dec2bin(base2dec(num2str(pairs(j, :).'), 8))-'0';
         gpoly    = conv(mpair(1, :), mpair(2, :));
