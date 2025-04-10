@@ -42,7 +42,7 @@ for i = 1:size(ppoly, 1)
     if abs(mv) > Tm
         disp("m sequence");
         poly  = ppoly(i, :);
-        state = [];
+        state = mStateEst(seq, poly);
         reseq = circshift(tempseq, idx-1);
         flag  = true;
         break;
