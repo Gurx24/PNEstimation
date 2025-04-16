@@ -2,7 +2,8 @@ clc; clear; close all;
 
 load(".\Data\parameters.mat", "est_PN_code", "pairs");
 
-% [num, pairs] = getoptpairs(L); % obtain all optimal pairs of L-th order
+% % obtain all optimal pairs of L-th order
+% [num, pairs] = getoptpairs(L); 
 % fprintf('obtained %d optimal pairs of %d order.\n', num, L);
 
 tic
