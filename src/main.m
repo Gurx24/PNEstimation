@@ -12,13 +12,13 @@ clc; clear; close all;
 
 load("..\Data\parameters.mat", "est_PN_code", "pairs");
 
-L      = 9;                 % order of PN sequence
+L      = 10;                % order of PN sequence
 N      = 2^L - 1;           % length of PN sequence
 ber    = 0.005;             % bit error rate
-mgen   = 1033;              % generator polynomial of m sequence
-minist = 001;               % initial state of m sequence
-ggen   = [1033 1021];       % optimal pair of m sequence
-ginist = [001 010];         % initial state of optimal pair
+mgen   = 2011;              % generator polynomial of m sequence
+minist = 1001;              % initial state of m sequence
+ggen   = [2011 2157];       % optimal pair of m sequence
+ginist = [1001 1010];       % initial state of optimal pair
 
 %********************** Generate PN sequence ***********************
 
@@ -28,8 +28,8 @@ gs     = xor(mspair(1, :), mspair(2, :)).'; % genetare Gold sequence
 
 %********************** Obtain optimal pairs ***********************
 
-[num, pairs] = getoptpairs(L);
-fprintf('obtained %d optimal pairs of %d order.\n', num, L);
+% [num, pairs] = getoptpairs(L);
+% fprintf('obtained %d optimal pairs of %d order.\n', num, L);
 
 %********************** Generate error bits ************************
 
