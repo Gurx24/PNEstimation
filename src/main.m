@@ -2,6 +2,7 @@
 %
 % Generating m and Gold sequence through simulation 
 % tests the feasibility of the algorithm.
+% parameters are octal.
 %
 % date : 2025.3.26  GuRX
 %
