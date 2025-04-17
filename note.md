@@ -206,6 +206,8 @@ $$
 
 ​	扩频码重构算法的具体步骤如下：
 
+具体实现见代码[persc.m](./src/persc.m)。
+
 <img src="./Data/Pictures/码序列重构流程图.png" alt="码序列重构流程图" style="zoom:80%;" />
 
 
