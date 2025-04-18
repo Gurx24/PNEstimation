@@ -18,8 +18,8 @@ N      = 2^L - 1;           % length of PN sequence
 ber    = 0.005;             % bit error rate
 mgen   = 2011;              % generator polynomial of m sequence
 minist = 1001;              % initial state of m sequence
-ggen   = [2011 2157];       % optimal pair of m sequence
-ginist = [1001 1010];       % initial state of optimal pair
+ggen   = [2011 2415];       % optimal pair of m sequence
+ginist = [1111 1302];       % initial state of optimal pair
 
 %********************** Generate PN sequence ***********************
 
